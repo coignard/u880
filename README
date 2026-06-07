@@ -1,0 +1,11 @@
+u880
+====
+
+A cycle-stepped, dependency-free MME U880 emulator, port of Andre Weissflog's
+z80.h with the U880-specific block I/O carry behavior patched in. Passes both
+the ZEXDOC and ZEXALL tests.
+
+    https://github.com/floooh/chips
+
+This source code is licensed under the GNU GPLv3.  See the LICENSE file
+for more details.
