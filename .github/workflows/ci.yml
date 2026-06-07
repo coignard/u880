@@ -30,6 +30,8 @@ jobs:
       run: cargo test --release --test zexall test_zexdoc -- --ignored --nocapture
     - name: Run ZEXALL (test_zexall)
       run: cargo test --release --test zexall test_zexall -- --ignored --nocapture
+    - name: Run z80type
+      run: cargo test --release --test z80type -- --ignored --nocapture
 
   clippy:
     name: Clippy
