@@ -66,7 +66,9 @@ fn run_zex_test(rom: &[u8]) {
                             if ch == '$' {
                                 break;
                             }
-                            msg.push(ch);
+                            if ch != '\r' {
+                                msg.push(ch);
+                            }
                             addr = (addr + 1) & 0xFFFF;
                         }
 
