@@ -1,0 +1,16 @@
+[package]
+name = "u880"
+version = "0.1.0"
+authors = [
+    "René Coignard <contact@renecoignard.com>"
+]
+edition = "2024"
+rust-version = "1.96"
+license = "GPL-3.0-or-later"
+description = "A cycle-stepped, dependency-free MME U880 emulator"
+homepage = "https://coignard.org/u880"
+repository = "https://github.com/coignard/u880"
+readme = "README.md"
+keywords = ["u880", "u880d", "mme", "z80", "zilog", "emulator", "cpu", "no-std"]
+categories = ["emulators", "no-std"]
+exclude = [".github/*"]
