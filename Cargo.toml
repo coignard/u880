@@ -11,6 +11,6 @@ description = "A cycle-stepped, dependency-free MME U880 emulator"
 homepage = "https://coignard.org/u880"
 repository = "https://github.com/coignard/u880"
 readme = "README"
-keywords = ["u880", "u880d", "mme", "z80", "zilog", "emulator", "cpu", "no-std"]
+keywords = ["u880", "mme", "z80", "zilog", "cpu"]
 categories = ["emulators", "no-std"]
 exclude = [".github/*"]
