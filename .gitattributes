@@ -4,6 +4,7 @@
 *.toml text eol=lf
 *.yml text eol=lf
 *.z80 text eol=lf
+*.asm text eol=lf
 .gitignore text eol=lf
 *.com binary
 
