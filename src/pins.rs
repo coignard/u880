@@ -18,7 +18,7 @@
 //! The U880 pin bus.
 //!
 //! All CPU state that crosses the chip boundary is packed into a single `u64`
-//! "pin mask". [`U880::tick`](crate::Cpu::tick) returns the pins the CPU is
+//! "pin mask". [`Cpu::tick`](crate::Cpu::tick) returns the pins the CPU is
 //! driving; the host inspects them, services any memory or I/O request, and
 //! passes the (possibly modified) mask back on the next tick.
 //!
@@ -89,7 +89,7 @@ pub const WR: u64 = 1 << 28;
 pub const HALT: u64 = 1 << 29;
 /// Maskable interrupt request (set by the host).
 pub const INT: u64 = 1 << 30;
-/// Reset request (not emulated; call [`U880::reset`](crate::Cpu::reset)).
+/// Reset request (not emulated; call [`Cpu::reset`](crate::Cpu::reset)).
 pub const RES: u64 = 1 << 31;
 /// Non-maskable interrupt request (set by the host).
 pub const NMI: u64 = 1 << 32;
