@@ -14,3 +14,5 @@ readme = "README"
 keywords = ["u880", "mme", "z80", "zilog", "cpu"]
 categories = ["emulators", "no-std"]
 exclude = [".github/*"]
+
+[dependencies]
