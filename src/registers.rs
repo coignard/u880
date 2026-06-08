@@ -44,21 +44,21 @@ pub struct Registers {
     /// General-purpose register L.
     pub l: u8,
 
-    /// Shadow accumulator (AF').
+    /// Shadow accumulator.
     pub a2: u8,
-    /// Shadow flags register (AF').
+    /// Shadow flags register.
     pub f2: Flags,
-    /// Shadow register B'.
+    /// Shadow register B.
     pub b2: u8,
-    /// Shadow register C'.
+    /// Shadow register C.
     pub c2: u8,
-    /// Shadow register D'.
+    /// Shadow register D.
     pub d2: u8,
-    /// Shadow register E'.
+    /// Shadow register E.
     pub e2: u8,
-    /// Shadow register H'.
+    /// Shadow register H.
     pub h2: u8,
-    /// Shadow register L'.
+    /// Shadow register L.
     pub l2: u8,
 
     /// Index register IX.
@@ -250,7 +250,7 @@ impl Registers {
         self.pc = (self.pc & 0x00FF) | ((val as u16) << 8);
     }
 
-    /// Exchanges AF with the shadow register AF'.
+    /// Exchanges AF with the shadow register AF.
     #[inline(always)]
     pub fn swap_af(&mut self) {
         core::mem::swap(&mut self.a, &mut self.a2);
