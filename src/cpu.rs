@@ -96,14 +96,14 @@ impl Cpu {
         self.regs.sp = 0xFFFF;
         self.regs.wz = 0xFFFF;
 
-        self.regs.a_prime = 0xFF;
-        self.regs.f_prime = crate::flags::Flags::from_bits_retain(0xFF);
-        self.regs.b_prime = 0xFF;
-        self.regs.c_prime = 0xFF;
-        self.regs.d_prime = 0xFF;
-        self.regs.e_prime = 0xFF;
-        self.regs.h_prime = 0xFF;
-        self.regs.l_prime = 0xFF;
+        self.regs.a2 = 0xFF;
+        self.regs.f2 = crate::flags::Flags::from_bits_retain(0xFF);
+        self.regs.b2 = 0xFF;
+        self.regs.c2 = 0xFF;
+        self.regs.d2 = 0xFF;
+        self.regs.e2 = 0xFF;
+        self.regs.h2 = 0xFF;
+        self.regs.l2 = 0xFF;
 
         self.state = State::default();
         self.prefetch(0x0000)

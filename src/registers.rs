@@ -22,9 +22,9 @@ use crate::flags::Flags;
 /// U880 registers.
 ///
 /// Holds all programmer-visible and internal registers: the main and shadow
-/// banks (AF, BC, DE, HL and their primed counterparts), index registers IX
-/// and IY, stack pointer SP, program counter PC, interrupt vector base I,
-/// memory refresh counter R, and the internal WZ (MEMPTR) register.
+/// banks (AF, BC, DE, HL and their alternates), index registers IX and IY,
+/// stack pointer SP, program counter PC, interrupt vector base I, memory
+/// refresh counter R, and the internal WZ (MEMPTR) register.
 #[derive(Clone, Debug, Default, PartialEq, Eq)]
 pub struct Registers {
     /// Accumulator.
@@ -45,21 +45,21 @@ pub struct Registers {
     pub l: u8,
 
     /// Shadow accumulator (AF').
-    pub a_prime: u8,
+    pub a2: u8,
     /// Shadow flags register (AF').
-    pub f_prime: Flags,
+    pub f2: Flags,
     /// Shadow register B'.
-    pub b_prime: u8,
+    pub b2: u8,
     /// Shadow register C'.
-    pub c_prime: u8,
+    pub c2: u8,
     /// Shadow register D'.
-    pub d_prime: u8,
+    pub d2: u8,
     /// Shadow register E'.
-    pub e_prime: u8,
+    pub e2: u8,
     /// Shadow register H'.
-    pub h_prime: u8,
+    pub h2: u8,
     /// Shadow register L'.
-    pub l_prime: u8,
+    pub l2: u8,
 
     /// Index register IX.
     pub ix: u16,
@@ -253,18 +253,18 @@ impl Registers {
     /// Exchanges AF with the shadow register AF'.
     #[inline(always)]
     pub fn swap_af(&mut self) {
-        core::mem::swap(&mut self.a, &mut self.a_prime);
-        core::mem::swap(&mut self.f, &mut self.f_prime);
+        core::mem::swap(&mut self.a, &mut self.a2);
+        core::mem::swap(&mut self.f, &mut self.f2);
     }
 
     /// Exchanges BC, DE, and HL with their shadow counterparts (EXX).
     #[inline(always)]
     pub fn swap_exx(&mut self) {
-        core::mem::swap(&mut self.b, &mut self.b_prime);
-        core::mem::swap(&mut self.c, &mut self.c_prime);
-        core::mem::swap(&mut self.d, &mut self.d_prime);
-        core::mem::swap(&mut self.e, &mut self.e_prime);
-        core::mem::swap(&mut self.h, &mut self.h_prime);
-        core::mem::swap(&mut self.l, &mut self.l_prime);
+        core::mem::swap(&mut self.b, &mut self.b2);
+        core::mem::swap(&mut self.c, &mut self.c2);
+        core::mem::swap(&mut self.d, &mut self.d2);
+        core::mem::swap(&mut self.e, &mut self.e2);
+        core::mem::swap(&mut self.h, &mut self.h2);
+        core::mem::swap(&mut self.l, &mut self.l2);
     }
 }
