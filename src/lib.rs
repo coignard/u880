@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-//! A cycle-stepped, dependency-free MME U880 emulator.
+//! A cycle-stepped MME U880 emulator.
 //!
 //! # Example
 //!
