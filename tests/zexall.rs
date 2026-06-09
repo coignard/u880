@@ -16,13 +16,13 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use std::io::{self, Write};
-use u880::{Cpu, pins};
+use u880::{Cpu, Revision, pins};
 
 const ZEXALL: &[u8] = include_bytes!("assets/zexall.com");
 const ZEXDOC: &[u8] = include_bytes!("assets/zexdoc.com");
 
-fn run_zex_test(rom: &[u8]) {
-    let mut cpu = Cpu::new();
+fn run_zex_test(rom: &[u8], revision: Revision) {
+    let mut cpu = Cpu::with_revision(revision);
     let mut mem = vec![0u8; 1 << 16];
     let mut bus;
 
@@ -91,11 +91,13 @@ fn run_zex_test(rom: &[u8]) {
 #[test]
 #[ignore]
 fn test_zexdoc() {
-    run_zex_test(ZEXDOC);
+    run_zex_test(ZEXDOC, Revision::Older);
+    run_zex_test(ZEXDOC, Revision::Newer);
 }
 
 #[test]
 #[ignore]
 fn test_zexall() {
-    run_zex_test(ZEXALL);
+    run_zex_test(ZEXALL, Revision::Older);
+    run_zex_test(ZEXALL, Revision::Newer);
 }

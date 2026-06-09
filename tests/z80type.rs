@@ -16,12 +16,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use std::io::{self, Write};
-use u880::{Cpu, pins};
+use u880::{Cpu, Revision, pins};
 
 const Z80TYPE: &[u8] = include_bytes!("assets/z80type.com");
 
-fn run_z80type_test(rom: &[u8]) {
-    let mut cpu = Cpu::new();
+fn run_z80type_test(rom: &[u8], revision: Revision, expected: &str) {
+    let mut cpu = Cpu::with_revision(revision);
     let mut mem = vec![0u8; 1 << 16];
     let mut bus;
 
@@ -87,11 +87,20 @@ fn run_z80type_test(rom: &[u8]) {
         }
     }
 
-    assert!(output.contains("Detected CPU type: Older MME U880"));
+    assert!(output.contains(expected));
 }
 
 #[test]
 #[ignore]
 fn test_z80type() {
-    run_z80type_test(Z80TYPE);
+    run_z80type_test(
+        Z80TYPE,
+        Revision::Older,
+        "Detected CPU type: Older MME U880",
+    );
+    run_z80type_test(
+        Z80TYPE,
+        Revision::Newer,
+        "Detected CPU type: Newer MME U880, Thesys Z80, Microelectronica MMN 80CPU",
+    );
 }
