@@ -52,7 +52,7 @@ pub mod state;
 mod alu;
 mod decoder;
 
-pub use cpu::Cpu;
+pub use cpu::{Cpu, Revision};
 pub use flags::Flags;
 pub use registers::Registers;
 pub use state::{InterruptMode, State};

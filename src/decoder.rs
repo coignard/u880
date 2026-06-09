@@ -537,7 +537,7 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(689);
         }
         55 => {
-            cpu.regs.f = crate::alu::scf(cpu.regs.a, cpu.regs.f);
+            cpu.regs.f = crate::alu::scf(cpu.regs.a, cpu.regs.f, cpu.revision);
             fetch!();
         }
         56 => {
@@ -566,7 +566,7 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(721);
         }
         63 => {
-            cpu.regs.f = crate::alu::ccf(cpu.regs.a, cpu.regs.f);
+            cpu.regs.f = crate::alu::ccf(cpu.regs.a, cpu.regs.f, cpu.revision);
             fetch!();
         }
         64 => {

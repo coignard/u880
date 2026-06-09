@@ -54,6 +54,20 @@ pub(crate) const INT_IM1_STEP: u16 = 1642;
 pub(crate) const INT_IM2_STEP: u16 = 1655;
 pub(crate) const NMI_STEP: u16 = 1674;
 
+/// Selects the hardware revision for SCF/CCF undocumented flag behavior.
+///
+/// The [`Flags::X`] and [`Flags::Y`] flags are computed differently depending
+/// on the U880 silicon revision during `SCF` and `CCF` instructions.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum Revision {
+    /// Early MME U880: [`Flags::X`] and [`Flags::Y`] are copied from the accumulator (`F = A`).
+    #[default]
+    Older,
+    /// Late MME U880: a hardware bug causes [`Flags::X`] and [`Flags::Y`] to be
+    /// set as `A | F_in` instead of `A`
+    Newer,
+}
+
 /// A U880 CPU.
 ///
 /// Construct one with [`Cpu::new`] and advance it one clock cycle at a time
@@ -65,6 +79,8 @@ pub struct Cpu {
     pub regs: Registers,
     /// Internal execution and interrupt state.
     pub state: State,
+    /// Hardware revision controlling SCF/CCF undocumented flag behavior.
+    pub revision: Revision,
 }
 
 impl Default for Cpu {
@@ -76,9 +92,15 @@ impl Default for Cpu {
 impl Cpu {
     /// Creates a CPU in its power-on state, ready to fetch from address `0x0000`.
     pub fn new() -> Self {
+        Self::with_revision(Revision::default())
+    }
+
+    /// Creates a CPU with the specified hardware [`Revision`].
+    pub fn with_revision(revision: Revision) -> Self {
         let mut cpu = Self {
             regs: Registers::default(),
             state: State::default(),
+            revision,
         };
         cpu.reset();
         cpu

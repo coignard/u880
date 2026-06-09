@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use crate::cpu::Cpu;
+use crate::cpu::{Cpu, Revision};
 use crate::flags::Flags;
 
 #[inline(always)]
@@ -240,19 +240,25 @@ pub fn cpl(a: u8, f_in: Flags) -> (u8, Flags) {
 }
 
 #[inline(always)]
-pub fn scf(a: u8, f_in: Flags) -> Flags {
+pub fn scf(a: u8, f_in: Flags, rev: Revision) -> Flags {
     let mut f = Flags::from_bits_retain(f_in.0 & (Flags::S | Flags::Z | Flags::P | Flags::C));
     f.insert(Flags::C);
-    f.0 |= a & (Flags::Y | Flags::X);
+    match rev {
+        Revision::Older => f.0 |= a & (Flags::Y | Flags::X),
+        Revision::Newer => f.0 |= (a | f_in.0) & (Flags::Y | Flags::X),
+    }
     f
 }
 
 #[inline(always)]
-pub fn ccf(a: u8, f_in: Flags) -> Flags {
+pub fn ccf(a: u8, f_in: Flags, rev: Revision) -> Flags {
     let mut f = Flags::from_bits_retain(f_in.0 & (Flags::S | Flags::Z | Flags::P | Flags::C));
     let carry = if f_in.contains(Flags::C) { 1 } else { 0 };
     f.0 |= carry << 4;
-    f.0 |= a & (Flags::Y | Flags::X);
+    match rev {
+        Revision::Older => f.0 |= a & (Flags::Y | Flags::X),
+        Revision::Newer => f.0 |= (a | f_in.0) & (Flags::Y | Flags::X),
+    }
     if carry == 0 {
         f.insert(Flags::C);
     } else {
