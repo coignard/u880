@@ -56,14 +56,14 @@ pub(crate) const NMI_STEP: u16 = 1674;
 
 /// Selects the hardware revision for SCF/CCF undocumented flag behavior.
 ///
-/// The [`Flags::X`] and [`Flags::Y`] flags are computed differently depending
+/// The [`crate::Flags::X`] and [`crate::Flags::Y`] flags are computed differently depending
 /// on the U880 silicon revision during `SCF` and `CCF` instructions.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub enum Revision {
-    /// Early MME U880: [`Flags::X`] and [`Flags::Y`] are copied from the accumulator (`F = A`).
+    /// Early MME U880: [`crate::Flags::X`] and [`crate::Flags::Y`] are copied from the accumulator (`F = A`).
     #[default]
     Older,
-    /// Late MME U880: a hardware bug causes [`Flags::X`] and [`Flags::Y`] to be
+    /// Late MME U880: a hardware bug causes [`crate::Flags::X`] and [`crate::Flags::Y`] to be
     /// set as `A | F_in` instead of `A`
     Newer,
 }
