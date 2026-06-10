@@ -28,6 +28,8 @@ jobs:
       run: cargo test --doc --verbose
     - name: Run DIAGNOSTICS II V1.2
       run: cargo test --release --test cputest -- --ignored --nocapture
+    - name: Run z80test (z80full)
+      run: cargo test --release --test cputest -- --ignored --nocapture
     - name: Run ZEXALL (test_zexdoc)
       run: cargo test --release --test zexall test_zexdoc -- --ignored --nocapture
     - name: Run ZEXALL (test_zexall)
