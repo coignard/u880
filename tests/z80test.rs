@@ -24,9 +24,9 @@ const START_ADDR: u16 = 0x8000;
 // These should fail.
 #[rustfmt::skip]
 const COMMON_EXPECTED: &[&str] = &[
-    "089 LDIR->NOP'  FAILED",           // U880: WZ differs after ED 00 abort
+    "089 LDIR->NOP'  FAILED",           // FIXME: ED 00 abort state desync
     "CRC:9DC743B5   Expected:CC93B5EC",
-    "090 LDDR->NOP'  FAILED",           // U880: WZ differs after ED 00 abort
+    "090 LDDR->NOP'  FAILED",           // FIXME: ED 00 abort state desync
     "CRC:9C1DEA50   Expected:CD491C09",
     "098 INI  FAILED",                  // U880: CF unaffected
     "CRC:0873E884   Expected:03DA7534",
