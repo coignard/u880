@@ -22,6 +22,7 @@ const Z80FULL: &[u8] = include_bytes!("assets/z80full.out");
 const START_ADDR: u16 = 0x8000;
 
 // These should fail.
+#[rustfmt::skip]
 const COMMON_EXPECTED: &[&str] = &[
     "089 LDIR->NOP'  FAILED",           // U880: WZ differs after ED 00 abort
     "CRC:9DC743B5   Expected:CC93B5EC",
@@ -113,6 +114,7 @@ fn run_z80_test(rom: &[u8], revision: Revision, expected: &[&str]) {
 #[test]
 #[ignore]
 fn test_z80full() {
+    #[rustfmt::skip]
     let mut older_expected = vec![
         "003 SCF (NEC) OK",                 // U880: XF/YF = A
         "004 CCF (NEC) OK",                 // U880: XF/YF = A
@@ -130,6 +132,7 @@ fn test_z80full() {
 
     run_z80_test(Z80FULL, Revision::Older, &older_expected);
 
+    #[rustfmt::skip]
     let mut newer_expected = vec![
         "003 SCF (NEC) Skipped",            // U880: XF/YF = A|F_in, coincides on initial vector
         "004 CCF (NEC) Skipped",            // U880: XF/YF = A|F_in, coincides on initial vector
