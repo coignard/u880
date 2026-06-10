@@ -24,10 +24,6 @@ const START_ADDR: u16 = 0x8000;
 // These should fail.
 #[rustfmt::skip]
 const COMMON_EXPECTED: &[&str] = &[
-    "089 LDIR->NOP'  FAILED",           // FIXME: ED 00 abort state desync
-    "CRC:9DC743B5   Expected:CC93B5EC",
-    "090 LDDR->NOP'  FAILED",           // FIXME: ED 00 abort state desync
-    "CRC:9C1DEA50   Expected:CD491C09",
     "098 INI  FAILED",                  // U880: CF unaffected
     "CRC:0873E884   Expected:03DA7534",
     "099 IND  FAILED",                  // U880: CF unaffected
@@ -37,9 +33,9 @@ const COMMON_EXPECTED: &[&str] = &[
     "101 INDR  FAILED",                 // U880: CF unaffected
     "CRC:6BA43F4A   Expected:88F004AA",
     "102 INIR->NOP'  FAILED",           // U880: CF unaffected
-    "CRC:E97393FA   Expected:454E3531",
+    "CRC:57F84A75   Expected:454E3531",
     "103 INDR->NOP'  FAILED",           // U880: CF unaffected
-    "CRC:AA81E60F   Expected:06BC40C4",
+    "CRC:140A3F80   Expected:06BC40C4",
     "107 OUTI  FAILED",                 // U880: CF unaffected
     "CRC:6AA4B16F   Expected:6B09C8E2",
     "108 OUTD  FAILED",                 // U880: CF unaffected
@@ -126,7 +122,7 @@ fn test_z80full() {
         "CRC:45FC79B5   Expected:58E950E4",
         "006 CCF (ST)  FAILED",             // ST CMOS not emulated
         "CRC:A206B5E3   Expected:BF139CB2",
-        "Result: 016 of 160 tests failed.",
+        "Result: 014 of 160 tests failed.",
     ];
     older_expected.extend_from_slice(COMMON_EXPECTED);
 
@@ -140,7 +136,7 @@ fn test_z80full() {
         "CRC:0D3B8D53   Expected:9086496C",
         "008 CCF+SCF  FAILED",              // U880 Newer: XF/YF = A|F_in
         "CRC:D841BD8A   Expected:45FC79B5",
-        "Result: 014 of 160 tests failed.",
+        "Result: 012 of 160 tests failed.",
     ];
     newer_expected.extend_from_slice(COMMON_EXPECTED);
 
