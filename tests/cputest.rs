@@ -20,7 +20,7 @@ use u880::{Cpu, Revision, pins};
 
 const CPUTEST: &[u8] = include_bytes!("assets/cputest.com");
 
-fn run_cputest(rom: &[u8], revision: Revision) {
+fn run_cpu_test(rom: &[u8], revision: Revision) {
     let mut cpu = Cpu::with_revision(revision);
     let mut mem = vec![0u8; 1 << 16];
     let mut bus;
@@ -88,7 +88,7 @@ fn run_cputest(rom: &[u8], revision: Revision) {
 
 #[test]
 #[ignore]
-fn test_cputest() {
-    run_cputest(CPUTEST, Revision::Older);
-    run_cputest(CPUTEST, Revision::Newer);
+fn test_cpu_test() {
+    run_cpu_test(CPUTEST, Revision::Older);
+    run_cpu_test(CPUTEST, Revision::Newer);
 }
