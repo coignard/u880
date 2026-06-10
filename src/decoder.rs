@@ -5442,6 +5442,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1515 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1516);
         }
         1516 => {
@@ -5490,6 +5492,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1528 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1529);
         }
         1529 => {
@@ -5541,6 +5545,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1541 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1542);
         }
         1542 => {
@@ -5592,6 +5598,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1554 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1555);
         }
         1555 => {
@@ -5641,6 +5649,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1567 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1568);
         }
         1568 => {
@@ -5689,6 +5699,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1580 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1581);
         }
         1581 => {
@@ -5740,6 +5752,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1593 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1594);
         }
         1594 => {
@@ -5791,6 +5805,8 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         1606 => {
             cpu.regs.pc = cpu.regs.pc.wrapping_sub(2);
             cpu.regs.wz = cpu.regs.pc.wrapping_add(1);
+            cpu.regs.f.remove(Flags::X | Flags::Y);
+            cpu.regs.f.0 |= cpu.regs.pc_h() & (Flags::X | Flags::Y);
             goto!(1607);
         }
         1607 => {
