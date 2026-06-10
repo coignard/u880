@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+### Fixed
+- Looping block instructions (`LDIR`, `LDDR`, `CPIR`, `CPDR`, `INIR`, `INDR`, `OTIR`, `OTDR`) now correctly leak bits 3/5 of `PC_H` into `Flags::X`/`Flags::Y` when decrementing PC, matching the U880 ALU hardware behavior
+
 ## 0.1.2
 
 ### Added
