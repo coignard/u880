@@ -134,7 +134,7 @@ fn test_z80full() {
         "004 CCF (NEC) Skipped",            // U880: XF/YF = A|F_in, coincides on initial vector
         "007 SCF+CCF  FAILED",              // U880: XF/YF = A|F_in
         "CRC:0D3B8D53   Expected:9086496C",
-        "008 CCF+SCF  FAILED",              // U880 Newer: XF/YF = A|F_in
+        "008 CCF+SCF  FAILED",              // U880: XF/YF = A|F_in
         "CRC:D841BD8A   Expected:45FC79B5",
         "Result: 012 of 160 tests failed.",
     ];
