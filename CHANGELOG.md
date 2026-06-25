@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4
+
+### Fixed
+- `WAIT` is now sampled on the data T-state of every non-`M1` memory machine cycle instead of on the address T-state, so an asserted `WAIT` pin actually stalls reads and writes the way it already did for the `M1` opcode fetch.
+
 ## 0.1.3
 
 ### Fixed
