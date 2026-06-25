@@ -1552,11 +1552,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
         }
 
         512 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(513);
         }
         513 => {
+            wait!();
             cpu.regs.c = gd!();
             goto!(514);
         }
@@ -1564,11 +1564,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(515);
         }
         515 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(516);
         }
         516 => {
+            wait!();
             cpu.regs.b = gd!();
             goto!(517);
         }
@@ -1576,13 +1576,13 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         518 => {
-            wait!();
             mwrite!(cpu.regs.bc(), cpu.regs.a);
             cpu.regs.set_wz_l(cpu.regs.c.wrapping_add(1));
             cpu.regs.set_wz_h(cpu.regs.a);
             goto!(519);
         }
         519 => {
+            wait!();
             goto!(520);
         }
         520 => {
@@ -1595,11 +1595,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         523 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(524);
         }
         524 => {
+            wait!();
             cpu.regs.b = gd!();
             goto!(525);
         }
@@ -1628,11 +1628,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         533 => {
-            wait!();
             mread!(cpu.regs.bc());
             goto!(534);
         }
         534 => {
+            wait!();
             cpu.regs.a = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(535);
@@ -1647,11 +1647,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         538 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(539);
         }
         539 => {
+            wait!();
             cpu.regs.c = gd!();
             goto!(540);
         }
@@ -1662,11 +1662,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(542);
         }
         542 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(543);
         }
         543 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
             if cpu.regs.b == 0 {
@@ -1695,11 +1695,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         550 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(551);
         }
         551 => {
+            wait!();
             cpu.regs.e = gd!();
             goto!(552);
         }
@@ -1707,11 +1707,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(553);
         }
         553 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(554);
         }
         554 => {
+            wait!();
             cpu.regs.d = gd!();
             goto!(555);
         }
@@ -1719,13 +1719,13 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         556 => {
-            wait!();
             mwrite!(cpu.regs.de(), cpu.regs.a);
             cpu.regs.set_wz_l(cpu.regs.e.wrapping_add(1));
             cpu.regs.set_wz_h(cpu.regs.a);
             goto!(557);
         }
         557 => {
+            wait!();
             goto!(558);
         }
         558 => {
@@ -1738,11 +1738,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         561 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(562);
         }
         562 => {
+            wait!();
             cpu.regs.d = gd!();
             goto!(563);
         }
@@ -1750,11 +1750,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         564 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(565);
         }
         565 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(566);
         }
@@ -1800,11 +1800,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         579 => {
-            wait!();
             mread!(cpu.regs.de());
             goto!(580);
         }
         580 => {
+            wait!();
             cpu.regs.a = gd!();
             cpu.regs.wz = cpu.regs.de().wrapping_add(1);
             goto!(581);
@@ -1819,11 +1819,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         584 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(585);
         }
         585 => {
+            wait!();
             cpu.regs.e = gd!();
             goto!(586);
         }
@@ -1831,11 +1831,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         587 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(588);
         }
         588 => {
+            wait!();
             cpu.state.dlatch = gd!();
             if !cc_nz!() {
                 goto!(594);
@@ -1863,11 +1863,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         595 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(596);
         }
         596 => {
+            wait!();
             cpu.regs.set_hlx_l(cpu.state.hlx_idx, gd!());
             goto!(597);
         }
@@ -1875,11 +1875,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(598);
         }
         598 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(599);
         }
         599 => {
+            wait!();
             cpu.regs.set_hlx_h(cpu.state.hlx_idx, gd!());
             goto!(600);
         }
@@ -1887,11 +1887,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         601 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(602);
         }
         602 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(603);
         }
@@ -1899,11 +1899,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(604);
         }
         604 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(605);
         }
         605 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(606);
         }
@@ -1911,22 +1911,22 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(607);
         }
         607 => {
-            wait!();
             mwrite!(wz_postinc!(), cpu.regs.hlx_l(cpu.state.hlx_idx));
             goto!(608);
         }
         608 => {
+            wait!();
             goto!(609);
         }
         609 => {
             goto!(610);
         }
         610 => {
-            wait!();
             mwrite!(cpu.regs.wz, cpu.regs.hlx_h(cpu.state.hlx_idx));
             goto!(611);
         }
         611 => {
+            wait!();
             goto!(612);
         }
         612 => {
@@ -1939,11 +1939,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         615 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(616);
         }
         616 => {
+            wait!();
             cpu.regs.set_hlx_h(cpu.state.hlx_idx, gd!());
             goto!(617);
         }
@@ -1951,11 +1951,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         618 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(619);
         }
         619 => {
+            wait!();
             cpu.state.dlatch = gd!();
             if !cc_z!() {
                 goto!(625);
@@ -2004,11 +2004,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         633 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(634);
         }
         634 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(635);
         }
@@ -2016,11 +2016,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(636);
         }
         636 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(637);
         }
         637 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(638);
         }
@@ -2028,11 +2028,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(639);
         }
         639 => {
-            wait!();
             mread!(wz_postinc!());
             goto!(640);
         }
         640 => {
+            wait!();
             cpu.regs.set_hlx_l(cpu.state.hlx_idx, gd!());
             goto!(641);
         }
@@ -2040,11 +2040,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(642);
         }
         642 => {
-            wait!();
             mread!(cpu.regs.wz);
             goto!(643);
         }
         643 => {
+            wait!();
             cpu.regs.set_hlx_h(cpu.state.hlx_idx, gd!());
             goto!(644);
         }
@@ -2058,11 +2058,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         647 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(648);
         }
         648 => {
+            wait!();
             cpu.regs.set_hlx_l(cpu.state.hlx_idx, gd!());
             goto!(649);
         }
@@ -2070,11 +2070,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         650 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(651);
         }
         651 => {
+            wait!();
             cpu.state.dlatch = gd!();
             if !cc_nc!() {
                 goto!(657);
@@ -2102,11 +2102,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         658 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(659);
         }
         659 => {
+            wait!();
             cpu.regs.set_sp_l(gd!());
             goto!(660);
         }
@@ -2114,11 +2114,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(661);
         }
         661 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(662);
         }
         662 => {
+            wait!();
             cpu.regs.set_sp_h(gd!());
             goto!(663);
         }
@@ -2126,11 +2126,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         664 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(665);
         }
         665 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(666);
         }
@@ -2138,11 +2138,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(667);
         }
         667 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(668);
         }
         668 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(669);
         }
@@ -2150,12 +2150,12 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(670);
         }
         670 => {
-            wait!();
             mwrite!(wz_postinc!(), cpu.regs.a);
             cpu.regs.set_wz_h(cpu.regs.a);
             goto!(671);
         }
         671 => {
+            wait!();
             goto!(672);
         }
         672 => {
@@ -2168,11 +2168,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         675 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(676);
         }
         676 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.state.dlatch = inc8!(cpu.state.dlatch);
             goto!(677);
@@ -2184,22 +2184,22 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(679);
         }
         679 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.state.dlatch);
             goto!(680);
         }
         680 => {
+            wait!();
             goto!(681);
         }
         681 => {
             fetch!();
         }
         682 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(683);
         }
         683 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.state.dlatch = dec8!(cpu.state.dlatch);
             goto!(684);
@@ -2211,22 +2211,22 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(686);
         }
         686 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.state.dlatch);
             goto!(687);
         }
         687 => {
+            wait!();
             goto!(688);
         }
         688 => {
             fetch!();
         }
         689 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(690);
         }
         690 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(691);
         }
@@ -2234,22 +2234,22 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(692);
         }
         692 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.state.dlatch);
             goto!(693);
         }
         693 => {
+            wait!();
             goto!(694);
         }
         694 => {
             fetch!();
         }
         695 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(696);
         }
         696 => {
+            wait!();
             cpu.state.dlatch = gd!();
             if !cc_c!() {
                 goto!(702);
@@ -2298,11 +2298,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         710 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(711);
         }
         711 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(712);
         }
@@ -2310,11 +2310,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(713);
         }
         713 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(714);
         }
         714 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(715);
         }
@@ -2322,11 +2322,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(716);
         }
         716 => {
-            wait!();
             mread!(wz_postinc!());
             goto!(717);
         }
         717 => {
+            wait!();
             cpu.regs.a = gd!();
             goto!(718);
         }
@@ -2340,11 +2340,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         721 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(722);
         }
         722 => {
+            wait!();
             cpu.regs.a = gd!();
             goto!(723);
         }
@@ -2352,11 +2352,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         724 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(725);
         }
         725 => {
+            wait!();
             cpu.regs.b = gd!();
             goto!(726);
         }
@@ -2364,11 +2364,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         727 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(728);
         }
         728 => {
+            wait!();
             cpu.regs.c = gd!();
             goto!(729);
         }
@@ -2376,11 +2376,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         730 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(731);
         }
         731 => {
+            wait!();
             cpu.regs.d = gd!();
             goto!(732);
         }
@@ -2388,11 +2388,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         733 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(734);
         }
         734 => {
+            wait!();
             cpu.regs.e = gd!();
             goto!(735);
         }
@@ -2400,11 +2400,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         736 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(737);
         }
         737 => {
+            wait!();
             cpu.regs.h = gd!();
             goto!(738);
         }
@@ -2412,11 +2412,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         739 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(740);
         }
         740 => {
+            wait!();
             cpu.regs.l = gd!();
             goto!(741);
         }
@@ -2424,88 +2424,88 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         742 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.regs.b);
             goto!(743);
         }
         743 => {
+            wait!();
             goto!(744);
         }
         744 => {
             fetch!();
         }
         745 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.regs.c);
             goto!(746);
         }
         746 => {
+            wait!();
             goto!(747);
         }
         747 => {
             fetch!();
         }
         748 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.regs.d);
             goto!(749);
         }
         749 => {
+            wait!();
             goto!(750);
         }
         750 => {
             fetch!();
         }
         751 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.regs.e);
             goto!(752);
         }
         752 => {
+            wait!();
             goto!(753);
         }
         753 => {
             fetch!();
         }
         754 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.regs.h);
             goto!(755);
         }
         755 => {
+            wait!();
             goto!(756);
         }
         756 => {
             fetch!();
         }
         757 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.regs.l);
             goto!(758);
         }
         758 => {
+            wait!();
             goto!(759);
         }
         759 => {
             fetch!();
         }
         760 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.regs.a);
             goto!(761);
         }
         761 => {
+            wait!();
             goto!(762);
         }
         762 => {
             fetch!();
         }
         763 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(764);
         }
         764 => {
+            wait!();
             cpu.regs.a = gd!();
             goto!(765);
         }
@@ -2513,11 +2513,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         766 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(767);
         }
         767 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(768);
         }
@@ -2526,11 +2526,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         769 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(770);
         }
         770 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(771);
         }
@@ -2539,11 +2539,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         772 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(773);
         }
         773 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(774);
         }
@@ -2552,11 +2552,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         775 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(776);
         }
         776 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(777);
         }
@@ -2565,11 +2565,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         778 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(779);
         }
         779 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(780);
         }
@@ -2578,11 +2578,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         781 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(782);
         }
         782 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(783);
         }
@@ -2591,11 +2591,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         784 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(785);
         }
         785 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(786);
         }
@@ -2604,11 +2604,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         787 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(788);
         }
         788 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(789);
         }
@@ -2620,11 +2620,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(791);
         }
         791 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(792);
         }
         792 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(793);
         }
@@ -2632,11 +2632,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(794);
         }
         794 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(795);
         }
         795 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(796);
@@ -2645,11 +2645,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         797 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(798);
         }
         798 => {
+            wait!();
             cpu.regs.c = gd!();
             goto!(799);
         }
@@ -2657,11 +2657,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(800);
         }
         800 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(801);
         }
         801 => {
+            wait!();
             cpu.regs.b = gd!();
             goto!(802);
         }
@@ -2669,11 +2669,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         803 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(804);
         }
         804 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(805);
         }
@@ -2681,11 +2681,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(806);
         }
         806 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(807);
         }
         807 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_nz!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -2696,11 +2696,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         809 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(810);
         }
         810 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(811);
         }
@@ -2708,11 +2708,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(812);
         }
         812 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(813);
         }
         813 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(814);
@@ -2721,11 +2721,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         815 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(816);
         }
         816 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(817);
         }
@@ -2733,11 +2733,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(818);
         }
         818 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(819);
         }
         819 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_nz!() {
                 goto!(827);
@@ -2751,23 +2751,23 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(822);
         }
         822 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(823);
         }
         823 => {
+            wait!();
             goto!(824);
         }
         824 => {
             goto!(825);
         }
         825 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(826);
         }
         826 => {
+            wait!();
             goto!(827);
         }
         827 => {
@@ -2777,33 +2777,33 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(829);
         }
         829 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.b);
             goto!(830);
         }
         830 => {
+            wait!();
             goto!(831);
         }
         831 => {
             goto!(832);
         }
         832 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.c);
             goto!(833);
         }
         833 => {
+            wait!();
             goto!(834);
         }
         834 => {
             fetch!();
         }
         835 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(836);
         }
         836 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(837);
         }
@@ -2815,24 +2815,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(839);
         }
         839 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(840);
         }
         840 => {
+            wait!();
             goto!(841);
         }
         841 => {
             goto!(842);
         }
         842 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x00;
             cpu.regs.pc = cpu.regs.wz;
             goto!(843);
         }
         843 => {
+            wait!();
             goto!(844);
         }
         844 => {
@@ -2842,11 +2842,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(846);
         }
         846 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(847);
         }
         847 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(848);
         }
@@ -2854,11 +2854,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(849);
         }
         849 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(850);
         }
         850 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(851);
@@ -2867,11 +2867,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         852 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(853);
         }
         853 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(854);
         }
@@ -2879,11 +2879,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(855);
         }
         855 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(856);
         }
         856 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(857);
@@ -2892,11 +2892,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         858 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(859);
         }
         859 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(860);
         }
@@ -2904,11 +2904,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(861);
         }
         861 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(862);
         }
         862 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_z!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -2919,11 +2919,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         864 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(865);
         }
         865 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(866);
         }
@@ -2931,11 +2931,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(867);
         }
         867 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(868);
         }
         868 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_z!() {
                 goto!(876);
@@ -2949,34 +2949,34 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(871);
         }
         871 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(872);
         }
         872 => {
+            wait!();
             goto!(873);
         }
         873 => {
             goto!(874);
         }
         874 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(875);
         }
         875 => {
+            wait!();
             goto!(876);
         }
         876 => {
             fetch!();
         }
         877 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(878);
         }
         878 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(879);
         }
@@ -2984,11 +2984,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(880);
         }
         880 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(881);
         }
         881 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(882);
         }
@@ -2999,34 +2999,34 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(884);
         }
         884 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(885);
         }
         885 => {
+            wait!();
             goto!(886);
         }
         886 => {
             goto!(887);
         }
         887 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(888);
         }
         888 => {
+            wait!();
             goto!(889);
         }
         889 => {
             fetch!();
         }
         890 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(891);
         }
         891 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(892);
         }
@@ -3038,24 +3038,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(894);
         }
         894 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(895);
         }
         895 => {
+            wait!();
             goto!(896);
         }
         896 => {
             goto!(897);
         }
         897 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x08;
             cpu.regs.pc = cpu.regs.wz;
             goto!(898);
         }
         898 => {
+            wait!();
             goto!(899);
         }
         899 => {
@@ -3065,11 +3065,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(901);
         }
         901 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(902);
         }
         902 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(903);
         }
@@ -3077,11 +3077,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(904);
         }
         904 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(905);
         }
         905 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(906);
@@ -3090,11 +3090,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         907 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(908);
         }
         908 => {
+            wait!();
             cpu.regs.e = gd!();
             goto!(909);
         }
@@ -3102,11 +3102,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(910);
         }
         910 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(911);
         }
         911 => {
+            wait!();
             cpu.regs.d = gd!();
             goto!(912);
         }
@@ -3114,11 +3114,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         913 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(914);
         }
         914 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(915);
         }
@@ -3126,11 +3126,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(916);
         }
         916 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(917);
         }
         917 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_nc!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -3141,11 +3141,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         919 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(920);
         }
         920 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             cpu.regs.set_wz_h(cpu.regs.a);
             goto!(921);
@@ -3169,11 +3169,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         926 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(927);
         }
         927 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(928);
         }
@@ -3181,11 +3181,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(929);
         }
         929 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(930);
         }
         930 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_nc!() {
                 goto!(938);
@@ -3199,23 +3199,23 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(933);
         }
         933 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(934);
         }
         934 => {
+            wait!();
             goto!(935);
         }
         935 => {
             goto!(936);
         }
         936 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(937);
         }
         937 => {
+            wait!();
             goto!(938);
         }
         938 => {
@@ -3225,33 +3225,33 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(940);
         }
         940 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.d);
             goto!(941);
         }
         941 => {
+            wait!();
             goto!(942);
         }
         942 => {
             goto!(943);
         }
         943 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.e);
             goto!(944);
         }
         944 => {
+            wait!();
             goto!(945);
         }
         945 => {
             fetch!();
         }
         946 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(947);
         }
         947 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(948);
         }
@@ -3263,24 +3263,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(950);
         }
         950 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(951);
         }
         951 => {
+            wait!();
             goto!(952);
         }
         952 => {
             goto!(953);
         }
         953 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x10;
             cpu.regs.pc = cpu.regs.wz;
             goto!(954);
         }
         954 => {
+            wait!();
             goto!(955);
         }
         955 => {
@@ -3290,11 +3290,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(957);
         }
         957 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(958);
         }
         958 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(959);
         }
@@ -3302,11 +3302,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(960);
         }
         960 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(961);
         }
         961 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(962);
@@ -3315,11 +3315,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         963 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(964);
         }
         964 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(965);
         }
@@ -3327,11 +3327,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(966);
         }
         966 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(967);
         }
         967 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_c!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -3342,11 +3342,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         969 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(970);
         }
         970 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             cpu.regs.set_wz_h(cpu.regs.a);
             goto!(971);
@@ -3358,11 +3358,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(973);
         }
         973 => {
-            wait!();
             ioread!(wz_postinc!());
             goto!(974);
         }
         974 => {
+            wait!();
             cpu.regs.a = gd!();
             goto!(975);
         }
@@ -3370,11 +3370,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         976 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(977);
         }
         977 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(978);
         }
@@ -3382,11 +3382,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(979);
         }
         979 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(980);
         }
         980 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_c!() {
                 goto!(988);
@@ -3400,34 +3400,34 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(983);
         }
         983 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(984);
         }
         984 => {
+            wait!();
             goto!(985);
         }
         985 => {
             goto!(986);
         }
         986 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(987);
         }
         987 => {
+            wait!();
             goto!(988);
         }
         988 => {
             fetch!();
         }
         989 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(990);
         }
         990 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(991);
         }
@@ -3439,24 +3439,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(993);
         }
         993 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(994);
         }
         994 => {
+            wait!();
             goto!(995);
         }
         995 => {
             goto!(996);
         }
         996 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x18;
             cpu.regs.pc = cpu.regs.wz;
             goto!(997);
         }
         997 => {
+            wait!();
             goto!(998);
         }
         998 => {
@@ -3466,11 +3466,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1000);
         }
         1000 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1001);
         }
         1001 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1002);
         }
@@ -3478,11 +3478,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1003);
         }
         1003 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1004);
         }
         1004 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1005);
@@ -3491,11 +3491,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1006 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1007);
         }
         1007 => {
+            wait!();
             cpu.regs.set_hlx_l(cpu.state.hlx_idx, gd!());
             goto!(1008);
         }
@@ -3503,11 +3503,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1009);
         }
         1009 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1010);
         }
         1010 => {
+            wait!();
             cpu.regs.set_hlx_h(cpu.state.hlx_idx, gd!());
             goto!(1011);
         }
@@ -3515,11 +3515,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1012 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1013);
         }
         1013 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1014);
         }
@@ -3527,11 +3527,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1015);
         }
         1015 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1016);
         }
         1016 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_po!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -3542,11 +3542,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1018 => {
-            wait!();
             mread!(cpu.regs.sp);
             goto!(1019);
         }
         1019 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1020);
         }
@@ -3554,11 +3554,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1021);
         }
         1021 => {
-            wait!();
             mread!(cpu.regs.sp.wrapping_add(1));
             goto!(1022);
         }
         1022 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1023);
         }
@@ -3569,7 +3569,6 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1025);
         }
         1025 => {
-            wait!();
             mwrite!(
                 cpu.regs.sp.wrapping_add(1),
                 cpu.regs.hlx_h(cpu.state.hlx_idx)
@@ -3577,18 +3576,19 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1026);
         }
         1026 => {
+            wait!();
             goto!(1027);
         }
         1027 => {
             goto!(1028);
         }
         1028 => {
-            wait!();
             mwrite!(cpu.regs.sp, cpu.regs.hlx_l(cpu.state.hlx_idx));
             cpu.regs.set_hlx(cpu.state.hlx_idx, cpu.regs.wz);
             goto!(1029);
         }
         1029 => {
+            wait!();
             goto!(1030);
         }
         1030 => {
@@ -3601,11 +3601,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1033 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1034);
         }
         1034 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1035);
         }
@@ -3613,11 +3613,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1036);
         }
         1036 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1037);
         }
         1037 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_po!() {
                 goto!(1045);
@@ -3631,23 +3631,23 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1040);
         }
         1040 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1041);
         }
         1041 => {
+            wait!();
             goto!(1042);
         }
         1042 => {
             goto!(1043);
         }
         1043 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1044);
         }
         1044 => {
+            wait!();
             goto!(1045);
         }
         1045 => {
@@ -3657,33 +3657,33 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1047);
         }
         1047 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.hlx_h(cpu.state.hlx_idx));
             goto!(1048);
         }
         1048 => {
+            wait!();
             goto!(1049);
         }
         1049 => {
             goto!(1050);
         }
         1050 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.hlx_l(cpu.state.hlx_idx));
             goto!(1051);
         }
         1051 => {
+            wait!();
             goto!(1052);
         }
         1052 => {
             fetch!();
         }
         1053 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1054);
         }
         1054 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1055);
         }
@@ -3695,24 +3695,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1057);
         }
         1057 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1058);
         }
         1058 => {
+            wait!();
             goto!(1059);
         }
         1059 => {
             goto!(1060);
         }
         1060 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x20;
             cpu.regs.pc = cpu.regs.wz;
             goto!(1061);
         }
         1061 => {
+            wait!();
             goto!(1062);
         }
         1062 => {
@@ -3722,11 +3722,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1064);
         }
         1064 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1065);
         }
         1065 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1066);
         }
@@ -3734,11 +3734,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1067);
         }
         1067 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1068);
         }
         1068 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1069);
@@ -3747,11 +3747,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1070 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1071);
         }
         1071 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1072);
         }
@@ -3759,11 +3759,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1073);
         }
         1073 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1074);
         }
         1074 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_pe!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -3774,11 +3774,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1076 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1077);
         }
         1077 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1078);
         }
@@ -3786,11 +3786,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1079);
         }
         1079 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1080);
         }
         1080 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_pe!() {
                 goto!(1088);
@@ -3804,34 +3804,34 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1083);
         }
         1083 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1084);
         }
         1084 => {
+            wait!();
             goto!(1085);
         }
         1085 => {
             goto!(1086);
         }
         1086 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1087);
         }
         1087 => {
+            wait!();
             goto!(1088);
         }
         1088 => {
             fetch!();
         }
         1089 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1090);
         }
         1090 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1091);
         }
@@ -3843,24 +3843,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1093);
         }
         1093 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1094);
         }
         1094 => {
+            wait!();
             goto!(1095);
         }
         1095 => {
             goto!(1096);
         }
         1096 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x28;
             cpu.regs.pc = cpu.regs.wz;
             goto!(1097);
         }
         1097 => {
+            wait!();
             goto!(1098);
         }
         1098 => {
@@ -3870,11 +3870,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1100);
         }
         1100 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1101);
         }
         1101 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1102);
         }
@@ -3882,11 +3882,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1103);
         }
         1103 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1104);
         }
         1104 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1105);
@@ -3895,11 +3895,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1106 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1107);
         }
         1107 => {
+            wait!();
             cpu.regs.f = Flags::from_bits_retain(gd!());
             goto!(1108);
         }
@@ -3907,11 +3907,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1109);
         }
         1109 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1110);
         }
         1110 => {
+            wait!();
             cpu.regs.a = gd!();
             goto!(1111);
         }
@@ -3919,11 +3919,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1112 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1113);
         }
         1113 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1114);
         }
@@ -3931,11 +3931,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1115);
         }
         1115 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1116);
         }
         1116 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_p!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -3946,11 +3946,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1118 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1119);
         }
         1119 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1120);
         }
@@ -3958,11 +3958,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1121);
         }
         1121 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1122);
         }
         1122 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_p!() {
                 goto!(1130);
@@ -3976,23 +3976,23 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1125);
         }
         1125 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1126);
         }
         1126 => {
+            wait!();
             goto!(1127);
         }
         1127 => {
             goto!(1128);
         }
         1128 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1129);
         }
         1129 => {
+            wait!();
             goto!(1130);
         }
         1130 => {
@@ -4002,33 +4002,33 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1132);
         }
         1132 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.a);
             goto!(1133);
         }
         1133 => {
+            wait!();
             goto!(1134);
         }
         1134 => {
             goto!(1135);
         }
         1135 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.f.bits());
             goto!(1136);
         }
         1136 => {
+            wait!();
             goto!(1137);
         }
         1137 => {
             fetch!();
         }
         1138 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1139);
         }
         1139 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1140);
         }
@@ -4040,24 +4040,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1142);
         }
         1142 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1143);
         }
         1143 => {
+            wait!();
             goto!(1144);
         }
         1144 => {
             goto!(1145);
         }
         1145 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x30;
             cpu.regs.pc = cpu.regs.wz;
             goto!(1146);
         }
         1146 => {
+            wait!();
             goto!(1147);
         }
         1147 => {
@@ -4067,11 +4067,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1149);
         }
         1149 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1150);
         }
         1150 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1151);
         }
@@ -4079,11 +4079,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1152);
         }
         1152 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1153);
         }
         1153 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1154);
@@ -4098,11 +4098,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1157 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1158);
         }
         1158 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1159);
         }
@@ -4110,11 +4110,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1160);
         }
         1160 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1161);
         }
         1161 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if cc_m!() {
                 cpu.regs.pc = cpu.regs.wz;
@@ -4125,11 +4125,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1163 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1164);
         }
         1164 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1165);
         }
@@ -4137,11 +4137,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1166);
         }
         1166 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1167);
         }
         1167 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             if !cc_m!() {
                 goto!(1175);
@@ -4155,34 +4155,34 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1170);
         }
         1170 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1171);
         }
         1171 => {
+            wait!();
             goto!(1172);
         }
         1172 => {
             goto!(1173);
         }
         1173 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1174);
         }
         1174 => {
+            wait!();
             goto!(1175);
         }
         1175 => {
             fetch!();
         }
         1176 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1177);
         }
         1177 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1178);
         }
@@ -4194,24 +4194,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1180);
         }
         1180 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1181);
         }
         1181 => {
+            wait!();
             goto!(1182);
         }
         1182 => {
             goto!(1183);
         }
         1183 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x38;
             cpu.regs.pc = cpu.regs.wz;
             goto!(1184);
         }
         1184 => {
+            wait!();
             goto!(1185);
         }
         1185 => {
@@ -4221,11 +4221,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1187);
         }
         1187 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1188);
         }
         1188 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1189);
@@ -4271,11 +4271,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1201 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1202);
         }
         1202 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1203);
         }
@@ -4283,11 +4283,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1204);
         }
         1204 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1205);
         }
         1205 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1206);
         }
@@ -4295,33 +4295,33 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1207);
         }
         1207 => {
-            wait!();
             mwrite!(wz_postinc!(), cpu.regs.c);
             goto!(1208);
         }
         1208 => {
+            wait!();
             goto!(1209);
         }
         1209 => {
             goto!(1210);
         }
         1210 => {
-            wait!();
             mwrite!(cpu.regs.wz, cpu.regs.b);
             goto!(1211);
         }
         1211 => {
+            wait!();
             goto!(1212);
         }
         1212 => {
             fetch!();
         }
         1213 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1214);
         }
         1214 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1215);
         }
@@ -4329,11 +4329,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1216);
         }
         1216 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1217);
         }
         1217 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1218);
@@ -4351,11 +4351,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1221);
         }
         1221 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1222);
         }
         1222 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1223);
@@ -4401,11 +4401,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1235 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1236);
         }
         1236 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1237);
         }
@@ -4413,11 +4413,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1238);
         }
         1238 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1239);
         }
         1239 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1240);
         }
@@ -4425,11 +4425,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1241);
         }
         1241 => {
-            wait!();
             mread!(wz_postinc!());
             goto!(1242);
         }
         1242 => {
+            wait!();
             cpu.regs.c = gd!();
             goto!(1243);
         }
@@ -4437,11 +4437,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1244);
         }
         1244 => {
-            wait!();
             mread!(cpu.regs.wz);
             goto!(1245);
         }
         1245 => {
+            wait!();
             cpu.regs.b = gd!();
             goto!(1246);
         }
@@ -4449,11 +4449,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1247 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1248);
         }
         1248 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             pins |= pins::RETI;
             goto!(1249);
@@ -4462,11 +4462,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1250);
         }
         1250 => {
-            wait!();
             mread!(sp_postinc!());
             goto!(1251);
         }
         1251 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.pc = cpu.regs.wz;
             goto!(1252);
@@ -4484,11 +4484,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1255);
         }
         1255 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1256);
         }
         1256 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1257);
@@ -4534,11 +4534,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1269 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1270);
         }
         1270 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1271);
         }
@@ -4546,11 +4546,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1272);
         }
         1272 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1273);
         }
         1273 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1274);
         }
@@ -4558,22 +4558,22 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1275);
         }
         1275 => {
-            wait!();
             mwrite!(wz_postinc!(), cpu.regs.e);
             goto!(1276);
         }
         1276 => {
+            wait!();
             goto!(1277);
         }
         1277 => {
             goto!(1278);
         }
         1278 => {
-            wait!();
             mwrite!(cpu.regs.wz, cpu.regs.d);
             goto!(1279);
         }
         1279 => {
+            wait!();
             goto!(1280);
         }
         1280 => {
@@ -4588,11 +4588,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1284);
         }
         1284 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1285);
         }
         1285 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1286);
@@ -4638,11 +4638,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1298 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1299);
         }
         1299 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1300);
         }
@@ -4650,11 +4650,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1301);
         }
         1301 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1302);
         }
         1302 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1303);
         }
@@ -4662,11 +4662,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1304);
         }
         1304 => {
-            wait!();
             mread!(wz_postinc!());
             goto!(1305);
         }
         1305 => {
+            wait!();
             cpu.regs.e = gd!();
             goto!(1306);
         }
@@ -4674,11 +4674,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1307);
         }
         1307 => {
-            wait!();
             mread!(cpu.regs.wz);
             goto!(1308);
         }
         1308 => {
+            wait!();
             cpu.regs.d = gd!();
             goto!(1309);
         }
@@ -4694,11 +4694,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1313);
         }
         1313 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1314);
         }
         1314 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1315);
@@ -4744,11 +4744,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1327 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1328);
         }
         1328 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1329);
         }
@@ -4756,11 +4756,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1330);
         }
         1330 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1331);
         }
         1331 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1332);
         }
@@ -4768,33 +4768,33 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1333);
         }
         1333 => {
-            wait!();
             mwrite!(wz_postinc!(), cpu.regs.l);
             goto!(1334);
         }
         1334 => {
+            wait!();
             goto!(1335);
         }
         1335 => {
             goto!(1336);
         }
         1336 => {
-            wait!();
             mwrite!(cpu.regs.wz, cpu.regs.h);
             goto!(1337);
         }
         1337 => {
+            wait!();
             goto!(1338);
         }
         1338 => {
             fetch!();
         }
         1340 => {
-            wait!();
             mread!(cpu.regs.hl());
             goto!(1341);
         }
         1341 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1342);
         }
@@ -4815,12 +4815,12 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1347);
         }
         1347 => {
-            wait!();
             mwrite!(cpu.regs.hl(), cpu.state.dlatch);
             cpu.regs.wz = cpu.regs.hl().wrapping_add(1);
             goto!(1348);
         }
         1348 => {
+            wait!();
             goto!(1349);
         }
         1349 => {
@@ -4830,11 +4830,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1351);
         }
         1351 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1352);
         }
         1352 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1353);
@@ -4880,11 +4880,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1365 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1366);
         }
         1366 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1367);
         }
@@ -4892,11 +4892,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1368);
         }
         1368 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1369);
         }
         1369 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1370);
         }
@@ -4904,11 +4904,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1371);
         }
         1371 => {
-            wait!();
             mread!(wz_postinc!());
             goto!(1372);
         }
         1372 => {
+            wait!();
             cpu.regs.l = gd!();
             goto!(1373);
         }
@@ -4916,11 +4916,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1374);
         }
         1374 => {
-            wait!();
             mread!(cpu.regs.wz);
             goto!(1375);
         }
         1375 => {
+            wait!();
             cpu.regs.h = gd!();
             goto!(1376);
         }
@@ -4928,11 +4928,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1378 => {
-            wait!();
             mread!(cpu.regs.hl());
             goto!(1379);
         }
         1379 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1380);
         }
@@ -4953,12 +4953,12 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1385);
         }
         1385 => {
-            wait!();
             mwrite!(cpu.regs.hl(), cpu.state.dlatch);
             cpu.regs.wz = cpu.regs.hl().wrapping_add(1);
             goto!(1386);
         }
         1386 => {
+            wait!();
             goto!(1387);
         }
         1387 => {
@@ -4968,11 +4968,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1389);
         }
         1389 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1390);
         }
         1390 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1391);
@@ -5018,11 +5018,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1403 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1404);
         }
         1404 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1405);
         }
@@ -5030,11 +5030,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1406);
         }
         1406 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1407);
         }
         1407 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1408);
         }
@@ -5042,22 +5042,22 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1409);
         }
         1409 => {
-            wait!();
             mwrite!(wz_postinc!(), cpu.regs.sp_l());
             goto!(1410);
         }
         1410 => {
+            wait!();
             goto!(1411);
         }
         1411 => {
             goto!(1412);
         }
         1412 => {
-            wait!();
             mwrite!(cpu.regs.wz, cpu.regs.sp_h());
             goto!(1413);
         }
         1413 => {
+            wait!();
             goto!(1414);
         }
         1414 => {
@@ -5067,11 +5067,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1417);
         }
         1417 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1418);
         }
         1418 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             goto!(1419);
@@ -5117,11 +5117,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1431 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1432);
         }
         1432 => {
+            wait!();
             cpu.regs.set_wz_l(gd!());
             goto!(1433);
         }
@@ -5129,11 +5129,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1434);
         }
         1434 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1435);
         }
         1435 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             goto!(1436);
         }
@@ -5141,11 +5141,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1437);
         }
         1437 => {
-            wait!();
             mread!(wz_postinc!());
             goto!(1438);
         }
         1438 => {
+            wait!();
             cpu.regs.set_sp_l(gd!());
             goto!(1439);
         }
@@ -5153,11 +5153,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1440);
         }
         1440 => {
-            wait!();
             mread!(cpu.regs.wz);
             goto!(1441);
         }
         1441 => {
+            wait!();
             cpu.regs.set_sp_h(gd!());
             goto!(1442);
         }
@@ -5165,11 +5165,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1444 => {
-            wait!();
             mread!(hl_postinc!());
             goto!(1445);
         }
         1445 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1446);
         }
@@ -5177,11 +5177,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1447);
         }
         1447 => {
-            wait!();
             mwrite!(de_postinc!(), cpu.state.dlatch);
             goto!(1448);
         }
         1448 => {
+            wait!();
             goto!(1449);
         }
         1449 => {
@@ -5195,11 +5195,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1452 => {
-            wait!();
             mread!(hl_postinc!());
             goto!(1453);
         }
         1453 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1454);
         }
@@ -5230,11 +5230,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1462);
         }
         1462 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1463);
         }
         1463 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
@@ -5244,12 +5244,12 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1465);
         }
         1465 => {
-            wait!();
             mwrite!(hl_postinc!(), cpu.state.dlatch);
             crate::alu::ini_ind_flags(cpu, cpu.state.dlatch, cpu.regs.c.wrapping_add(1));
             goto!(1466);
         }
         1466 => {
+            wait!();
             goto!(1467);
         }
         1467 => {
@@ -5259,11 +5259,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1469);
         }
         1469 => {
-            wait!();
             mread!(hl_postinc!());
             goto!(1470);
         }
         1470 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
             goto!(1471);
@@ -5288,11 +5288,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1476 => {
-            wait!();
             mread!(hl_postdec!());
             goto!(1477);
         }
         1477 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1478);
         }
@@ -5300,11 +5300,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1479);
         }
         1479 => {
-            wait!();
             mwrite!(de_postdec!(), cpu.state.dlatch);
             goto!(1480);
         }
         1480 => {
+            wait!();
             goto!(1481);
         }
         1481 => {
@@ -5318,11 +5318,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1484 => {
-            wait!();
             mread!(hl_postdec!());
             goto!(1485);
         }
         1485 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1486);
         }
@@ -5353,11 +5353,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1494);
         }
         1494 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1495);
         }
         1495 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_sub(1);
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
@@ -5367,12 +5367,12 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1497);
         }
         1497 => {
-            wait!();
             mwrite!(hl_postdec!(), cpu.state.dlatch);
             crate::alu::ini_ind_flags(cpu, cpu.state.dlatch, cpu.regs.c.wrapping_sub(1));
             goto!(1498);
         }
         1498 => {
+            wait!();
             goto!(1499);
         }
         1499 => {
@@ -5382,11 +5382,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1501);
         }
         1501 => {
-            wait!();
             mread!(hl_postdec!());
             goto!(1502);
         }
         1502 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
             goto!(1503);
@@ -5411,11 +5411,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1508 => {
-            wait!();
             mread!(hl_postinc!());
             goto!(1509);
         }
         1509 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1510);
         }
@@ -5423,11 +5423,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1511);
         }
         1511 => {
-            wait!();
             mwrite!(de_postinc!(), cpu.state.dlatch);
             goto!(1512);
         }
         1512 => {
+            wait!();
             goto!(1513);
         }
         1513 => {
@@ -5462,11 +5462,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1521 => {
-            wait!();
             mread!(hl_postinc!());
             goto!(1522);
         }
         1522 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1523);
         }
@@ -5518,11 +5518,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1536);
         }
         1536 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1537);
         }
         1537 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_add(1);
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
@@ -5532,7 +5532,6 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1539);
         }
         1539 => {
-            wait!();
             mwrite!(hl_postinc!(), cpu.state.dlatch);
             if !crate::alu::ini_ind_flags(cpu, cpu.state.dlatch, cpu.regs.c.wrapping_add(1)) {
                 goto!(1545);
@@ -5540,6 +5539,7 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1540);
         }
         1540 => {
+            wait!();
             goto!(1541);
         }
         1541 => {
@@ -5559,6 +5559,7 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1545);
         }
         1545 => {
+            wait!();
             goto!(1546);
         }
         1546 => {
@@ -5568,11 +5569,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1548);
         }
         1548 => {
-            wait!();
             mread!(hl_postinc!());
             goto!(1549);
         }
         1549 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
             goto!(1550);
@@ -5618,11 +5619,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1560 => {
-            wait!();
             mread!(hl_postdec!());
             goto!(1561);
         }
         1561 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1562);
         }
@@ -5630,11 +5631,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1563);
         }
         1563 => {
-            wait!();
             mwrite!(de_postdec!(), cpu.state.dlatch);
             goto!(1564);
         }
         1564 => {
+            wait!();
             goto!(1565);
         }
         1565 => {
@@ -5669,11 +5670,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             fetch!();
         }
         1573 => {
-            wait!();
             mread!(hl_postdec!());
             goto!(1574);
         }
         1574 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1575);
         }
@@ -5725,11 +5726,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1588);
         }
         1588 => {
-            wait!();
             ioread!(cpu.regs.bc());
             goto!(1589);
         }
         1589 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.wz = cpu.regs.bc().wrapping_sub(1);
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
@@ -5739,7 +5740,6 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1591);
         }
         1591 => {
-            wait!();
             mwrite!(hl_postdec!(), cpu.state.dlatch);
             if !crate::alu::ini_ind_flags(cpu, cpu.state.dlatch, cpu.regs.c.wrapping_sub(1)) {
                 goto!(1597);
@@ -5747,6 +5747,7 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1592);
         }
         1592 => {
+            wait!();
             goto!(1593);
         }
         1593 => {
@@ -5766,6 +5767,7 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1597);
         }
         1597 => {
+            wait!();
             goto!(1598);
         }
         1598 => {
@@ -5775,11 +5777,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1600);
         }
         1600 => {
-            wait!();
             mread!(hl_postdec!());
             goto!(1601);
         }
         1601 => {
+            wait!();
             cpu.state.dlatch = gd!();
             cpu.regs.b = cpu.regs.b.wrapping_sub(1);
             goto!(1602);
@@ -5833,11 +5835,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1614);
         }
         1614 => {
-            wait!();
             mread!(cpu.regs.hl());
             goto!(1615);
         }
         1615 => {
+            wait!();
             cpu.state.dlatch = gd!();
             if !crate::alu::cb_action(cpu, 6, 6) {
                 goto!(1619);
@@ -5851,22 +5853,22 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1618);
         }
         1618 => {
-            wait!();
             mwrite!(cpu.regs.hl(), cpu.state.dlatch);
             goto!(1619);
         }
         1619 => {
+            wait!();
             goto!(1620);
         }
         1620 => {
             fetch!();
         }
         1621 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1622);
         }
         1622 => {
+            wait!();
             let d = gd!() as i8 as u16;
             cpu.state.addr = cpu.regs.hlx(cpu.state.hlx_idx).wrapping_add(d);
             cpu.regs.wz = cpu.state.addr;
@@ -5876,11 +5878,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1624);
         }
         1624 => {
-            wait!();
             mread!(pc_postinc!());
             goto!(1625);
         }
         1625 => {
+            wait!();
             cpu.state.opcode = gd!();
             goto!(1626);
         }
@@ -5894,11 +5896,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1629);
         }
         1629 => {
-            wait!();
             mread!(cpu.state.addr);
             goto!(1630);
         }
         1630 => {
+            wait!();
             cpu.state.dlatch = gd!();
             if !crate::alu::cb_action(cpu, 6, cpu.state.opcode & 7) {
                 goto!(1634);
@@ -5912,11 +5914,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1633);
         }
         1633 => {
-            wait!();
             mwrite!(cpu.state.addr, cpu.state.dlatch);
             goto!(1634);
         }
         1634 => {
+            wait!();
             goto!(1635);
         }
         1635 => {
@@ -5974,24 +5976,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1649);
         }
         1649 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1650);
         }
         1650 => {
+            wait!();
             goto!(1651);
         }
         1651 => {
             goto!(1652);
         }
         1652 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x0038;
             cpu.regs.pc = cpu.regs.wz;
             goto!(1653);
         }
         1653 => {
+            wait!();
             goto!(1654);
         }
         1654 => {
@@ -6025,35 +6027,35 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1662);
         }
         1662 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1663);
         }
         1663 => {
+            wait!();
             goto!(1664);
         }
         1664 => {
             goto!(1665);
         }
         1665 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.set_wz_l(cpu.state.dlatch);
             cpu.regs.set_wz_h(cpu.regs.i);
             goto!(1666);
         }
         1666 => {
+            wait!();
             goto!(1667);
         }
         1667 => {
             goto!(1668);
         }
         1668 => {
-            wait!();
             mread!(wz_postinc!());
             goto!(1669);
         }
         1669 => {
+            wait!();
             cpu.state.dlatch = gd!();
             goto!(1670);
         }
@@ -6061,11 +6063,11 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1671);
         }
         1671 => {
-            wait!();
             mread!(cpu.regs.wz);
             goto!(1672);
         }
         1672 => {
+            wait!();
             cpu.regs.set_wz_h(gd!());
             cpu.regs.set_wz_l(cpu.state.dlatch);
             cpu.regs.pc = cpu.regs.wz;
@@ -6093,24 +6095,24 @@ pub fn decode(cpu: &mut Cpu, mut pins: u64) -> u64 {
             goto!(1679);
         }
         1679 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_h());
             goto!(1680);
         }
         1680 => {
+            wait!();
             goto!(1681);
         }
         1681 => {
             goto!(1682);
         }
         1682 => {
-            wait!();
             mwrite!(sp_predec!(), cpu.regs.pc_l());
             cpu.regs.wz = 0x0066;
             cpu.regs.pc = cpu.regs.wz;
             goto!(1683);
         }
         1683 => {
+            wait!();
             goto!(1684);
         }
         1684 => {
