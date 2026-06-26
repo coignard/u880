@@ -67,3 +67,22 @@ jobs:
     - uses: dtolnay/rust-toolchain@stable
     - name: Check docs
       run: RUSTDOCFLAGS="-D warnings" cargo doc --no-deps
+
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        submodules: recursive
+    - uses: dtolnay/rust-toolchain@stable
+    - name: Install cargo-llvm-cov
+      uses: taiki-e/install-action@cargo-llvm-cov
+    - name: Generate coverage
+      run: cargo llvm-cov --all-features --workspace --codecov --output-path codecov.json
+    - name: Upload to Codecov
+      uses: codecov/codecov-action@v7
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: codecov.json
+        fail_ci_if_error: true
