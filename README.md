@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/coignard/u880/blob/main/assets/logo-dark.svg?raw=true">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/coignard/u880/blob/main/assets/logo.svg?raw=true">
-    <img src="assets/logo.svg" alt="Lottie Logo" height="24">
+    <img src="assets/logo.svg" alt="U880 Logo" height="24">
   </picture>
 </a>
 
@@ -22,6 +22,8 @@ A cycle-stepped MME U880 emulator
 Originally ported from Andre Weissflog's [z80.h](https://github.com/floooh/chips/blob/master/chips/z80.h) with U880-specific behavior patched in.
 
 ## License
+
+<img src="assets/gplv3.svg" height="70" align="right">
 
 The u880 source code is © 2026 René Coignard and licensed under the [GNU General Public License v3.0 or later](LICENSE).
 
