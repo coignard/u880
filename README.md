@@ -12,7 +12,7 @@ A cycle-stepped MME U880 emulator
 [![Documentation](https://img.shields.io/docsrs/u880?logo=docs.rs)](https://docs.rs/u880)
 [![codecov](https://codecov.io/github/coignard/u880/graph/badge.svg?token=ZP666KH4GK)](https://codecov.io/github/coignard/u880)
 [![Crates.io](https://img.shields.io/crates/v/u880.svg?logo=rust)](https://crates.io/crates/u880)
-[![License: GPLv3](https://img.shields.io/github/license/coignard/u880?color=blue)](LICENSE)
+[![License: LGPLv3](https://img.shields.io/github/license/coignard/u880?color=blue)](LICENSE)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/coignard)
 
 </div>
