@@ -23,8 +23,8 @@ Originally ported from Andre Weissflog's [z80.h](https://github.com/floooh/chips
 
 ## License
 
-<img src="assets/gplv3.svg" height="70" align="right">
+<img src="assets/lgplv3.svg" height="70" align="right">
 
-The u880 source code is © 2026 René Coignard and licensed under the [GNU General Public License v3.0 or later](LICENSE).
+The u880 source code is © 2026 René Coignard and licensed under the [GNU Lesser General Public License v3.0 or later](LICENSE).
 
 The z80.h source code is © 2018 Andre Weissflog and licensed under the [zlib License](LICENSE.zlib).
